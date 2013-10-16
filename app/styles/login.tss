@@ -1,4 +1,30 @@
-
+"*" : {
+  top: 5,
+  bottom: 5,
+},
+"#login_window" : {
+  top: 20
+},
 ".container" : {
-  
+  backgroundColor:"white"
+},
+"TextField" : {
+  top: 5,
+  bottom: 5,
+  left: 10,
+  right: 10,
+
+  borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+
+  height: 30,
+  width: Ti.UI.FILL
+},
+"Button" : {
+  backgroundColor: "red",
+  height: 50,
+  width: Ti.UI.Fill,
+  top: 5,
+  bottom: 5,
+  left: 10,
+  right: 10
 }

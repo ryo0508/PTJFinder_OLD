@@ -1,4 +1,11 @@
 <Alloy>
-	<View class="container">
-	</View>
+  <Window id="login_window" class="container">
+    <View layout="vertical">
+      <Label>email</Label>
+      <TextField id="email" />
+      <Label>password</Label>
+      <TextField id="password" passwordMask="true" />
+      <Button id="login_submit">SUBMIT</Button>
+    </View>
+  </Window>
 </Alloy>

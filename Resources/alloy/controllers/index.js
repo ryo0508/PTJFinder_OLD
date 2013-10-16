@@ -6,30 +6,38 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.index = Ti.UI.createWindow({
-        backgroundColor: "white",
+    $.__views.index = Ti.UI.createTabGroup({
         id: "index"
     });
-    $.__views.index && $.addTopLevelView($.__views.index);
-    $.__views.label = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        text: "Hello, World",
-        id: "label"
+    $.__views.__alloyId1 = Ti.UI.createWindow({
+        id: "__alloyId1"
     });
-    $.__views.index.add($.__views.label);
+    $.__views.main_tab = Ti.UI.createTab({
+        window: $.__views.__alloyId1,
+        id: "main_tab",
+        title: "Main"
+    });
+    $.__views.index.addTab($.__views.main_tab);
+    $.__views.__alloyId2 = Ti.UI.createWindow({
+        id: "__alloyId2"
+    });
+    $.__views.sub_tab = Ti.UI.createTab({
+        window: $.__views.__alloyId2,
+        id: "sub_tab",
+        title: "Sub"
+    });
+    $.__views.index.addTab($.__views.sub_tab);
+    $.__views.index && $.addTopLevelView($.__views.index);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args, client;
     args = arguments[0] || {};
-    $.index.open();
     client = new Alloy.Globals.ApiAccess("http://google.com", {
         success: function() {
-            return alert("success");
+            return $.index.open();
         },
         error: function() {
-            return alert("error dayo");
+            return Alloy.createController("login").getView().open();
         }
     });
     _.extend($, exports);

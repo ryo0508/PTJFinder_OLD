@@ -1,5 +1,10 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label">Hello, World</Label>
-	</Window>
+  <TabGroup>
+    <Tab id="main_tab" title="Main">
+      <Window />
+    </Tab>
+    <Tab id="sub_tab" title="Sub">
+      <Window />
+    </Tab>
+  </TabGroup>
 </Alloy>
